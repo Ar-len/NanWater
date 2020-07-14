@@ -1,5 +1,16 @@
 <template>
   <div class="app-container">
+    <el-row :gutter="20" class="filter-container">
+      <el-col :span="20">
+        <el-button type="primary"><i class="el-icon-upload2" />上传软件</el-button>
+      </el-col>
+      <el-col :span="4" class="text-right">
+        <el-input
+          placeholder="请输入内容"
+          suffix-icon="el-icon-search"
+        />
+      </el-col>
+    </el-row>
     <el-table
       v-loading="listLoading"
       :data="list"
@@ -43,7 +54,7 @@
           {{ scope.row.pageviews }}
         </template>
       </el-table-column>
-      <el-table-column label="操作" align='center' width="300">
+      <el-table-column label="操作" align="center" width="300">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -128,3 +139,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .text-left {
+    text-align: left;
+  }
+  .text-right {
+    text-align: right;
+    padding-right: 40px;
+  }
+  .filter-container{
+    margin: 20px;
+  }
+</style>

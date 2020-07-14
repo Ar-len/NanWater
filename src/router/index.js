@@ -50,114 +50,74 @@ export const constantRoutes = [
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      component: () => import('@/views/softwareLibrary/index'),
+      meta: { title: '软件库', icon: 'dashboard' }
     }]
   },
 
   {
-    path: '/example',
+    path: '/installed',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    children: [{
+      path: 'installed',
+      name: 'installed',
+      component: () => import('@/views/softwareLibrary/index'),
+      meta: { title: '已安装', icon: 'example' }
+    }]
+  },
+
+  {
+    path: '/history',
+    component: Layout,
+    children: [{
+      path: 'history',
+      name: 'history',
+      component: () => import('@/views/table/history'),
+      meta: { title: '日志', icon: 'nested' }
+    }]
+  },
+
+  {
+    path: '/userManage',
+    component: Layout,
+    redirect: '/userManage/userManage',
+    name: 'UserManage',
+    meta: { title: '用户管理', icon: 'form' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'userManage',
+        name: 'userManage',
+        component: () => import('@/views/table/userManage'),
+        meta: { title: '用户管理', icon: 'table' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
+        path: 'treeType',
+        name: 'TreeType',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: '级别管理', icon: 'tree' }
       }
     ]
   },
 
   {
-    path: '/form',
+    path: '/apply',
     component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
+    children: [{
+      path: 'apply',
+      name: 'apply',
+      component: () => import('@/views/table/applyList'),
+      meta: { title: '申请列表', icon: 'el-icon-s-help' }
+    }]
   },
-
   {
-    path: '/nested',
+    path: '/softManage',
     component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
-      }
-    ]
-  },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
+    children: [{
+      path: 'softManage',
+      name: 'softManage',
+      component: () => import('@/views/table/softwareManage'),
+      meta: { title: '软件管理', icon: 'table' }
+    }]
   },
 
   // 404 page must be placed at the end !!!
