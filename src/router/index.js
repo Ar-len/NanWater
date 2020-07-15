@@ -80,24 +80,35 @@ export const constantRoutes = [
   {
     path: '/userManage',
     component: Layout,
-    redirect: '/userManage/userManage',
-    name: 'UserManage',
-    meta: { title: '用户管理', icon: 'form' },
-    children: [
-      {
-        path: 'userManage',
-        name: 'userManage',
-        component: () => import('@/views/table/userManage'),
-        meta: { title: '用户管理', icon: 'table' }
-      },
-      {
-        path: 'treeType',
-        name: 'TreeType',
-        component: () => import('@/views/tree/index'),
-        meta: { title: '级别管理', icon: 'tree' }
-      }
-    ]
+    children: [{
+      path: 'userManage',
+      name: 'userManage',
+      component: () => import('@/views/table/userManage'),
+      meta: { title: '用户管理', icon: 'nested' }
+    }]
   },
+
+  // {
+  //   path: '/userManage',
+  //   component: Layout,
+  //   redirect: '/userManage/userManage',
+  //   name: 'UserManage',
+  //   meta: { title: '用户管理', icon: 'form' },
+  //   children: [
+  //     {
+  //       path: 'userManage',
+  //       name: 'userManage',
+  //       component: () => import('@/views/table/userManage'),
+  //       meta: { title: '用户管理', icon: 'table' }
+  //     },
+  //     {
+  //       path: 'treeType',
+  //       name: 'TreeType',
+  //       component: () => import('@/views/tree/index'),
+  //       meta: { title: '级别管理', icon: 'tree' }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/apply',

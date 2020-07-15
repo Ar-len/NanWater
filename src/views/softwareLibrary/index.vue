@@ -1,40 +1,51 @@
 <template>
   <div class="softwareLibrary-container">
-    <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane name="allSoftware">
-        <span slot="label">全部软件</span>
-      </el-tab-pane>
-      <el-tab-pane name="videoSoftware">
-        <span slot="label"><el-divider direction="vertical" />视频软件</span>
-      </el-tab-pane>
-      <el-tab-pane name="chatTools">
-        <span slot="label"><el-divider direction="vertical" />聊天工具</span>
-      </el-tab-pane>
-      <el-tab-pane name="browser">
-        <span slot="label"><el-divider direction="vertical" />浏览器</span>
-      </el-tab-pane>
-      <el-tab-pane name="officeSoftware">
-        <span slot="label"><el-divider direction="vertical" />办公软件</span>
-      </el-tab-pane>
-      <el-tab-pane name="typeWriting">
-        <span slot="label"><el-divider direction="vertical" />输入法</span>
-      </el-tab-pane>
-      <el-tab-pane name="musicSoftware">
-        <span slot="label"><el-divider direction="vertical" />音乐软件</span>
-      </el-tab-pane>
-      <el-tab-pane name="gameRrecreation">
-        <span slot="label"><el-divider direction="vertical" />游戏娱乐</span>
-      </el-tab-pane>
-      <el-tab-pane name="networkGame">
-        <span slot="label"><el-divider direction="vertical" />网络游戏</span>
-      </el-tab-pane>
-      <el-tab-pane name="DownloadTools">
-        <span slot="label"><el-divider direction="vertical" />下载工具</span>
-      </el-tab-pane>
-      <el-tab-pane name="salfAntiVirus">
-        <span slot="label"><el-divider direction="vertical" />安全杀毒</span>
-      </el-tab-pane>
-    </el-tabs>
+    <el-row class="softwareLibrary-row">
+      <el-col :span="20">
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane name="allSoftware">
+            <span slot="label">全部软件</span>
+          </el-tab-pane>
+          <el-tab-pane name="videoSoftware">
+            <span slot="label"><el-divider direction="vertical" />视频软件</span>
+          </el-tab-pane>
+          <el-tab-pane name="chatTools">
+            <span slot="label"><el-divider direction="vertical" />聊天工具</span>
+          </el-tab-pane>
+          <el-tab-pane name="browser">
+            <span slot="label"><el-divider direction="vertical" />浏览器</span>
+          </el-tab-pane>
+          <el-tab-pane name="officeSoftware">
+            <span slot="label"><el-divider direction="vertical" />办公软件</span>
+          </el-tab-pane>
+          <el-tab-pane name="typeWriting">
+            <span slot="label"><el-divider direction="vertical" />输入法</span>
+          </el-tab-pane>
+          <el-tab-pane name="musicSoftware">
+            <span slot="label"><el-divider direction="vertical" />音乐软件</span>
+          </el-tab-pane>
+          <el-tab-pane name="gameRrecreation">
+            <span slot="label"><el-divider direction="vertical" />游戏娱乐</span>
+          </el-tab-pane>
+          <el-tab-pane name="networkGame">
+            <span slot="label"><el-divider direction="vertical" />网络游戏</span>
+          </el-tab-pane>
+          <el-tab-pane name="DownloadTools">
+            <span slot="label"><el-divider direction="vertical" />下载工具</span>
+          </el-tab-pane>
+          <el-tab-pane name="salfAntiVirus">
+            <span slot="label"><el-divider direction="vertical" />安全杀毒</span>
+          </el-tab-pane>
+        </el-tabs>
+      </el-col>
+      <el-col :span="4">
+        <el-input
+          placeholder="请输入内容"
+          suffix-icon="el-icon-search"
+        />
+      </el-col>
+    </el-row>
+
     <div class="softwareLibrary-text">name: {{ name }}
       <el-table
         :data="tableData"
@@ -136,6 +147,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.softwareLibrary-row {
+  margin-bottom: 20px;
+}
 .softwareLibrary {
   &-container {
     margin: 30px;

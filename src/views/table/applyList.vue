@@ -182,3 +182,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .text-left {
+    text-align: left;
+  }
+  .text-right {
+    text-align: right;
+    padding-right: 20px ;
+  }
+  .filter-container{
+    margin: 20px;
+  }
+</style>
